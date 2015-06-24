@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A38A8A1B3AEFD800B86975 /* SKDoge.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A38A891B3AEFD800B86975 /* SKDoge.m */; };
 		7157F7E41B39962D008211D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7157F7E31B39962D008211D8 /* main.m */; };
 		7157F7E71B39962D008211D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7157F7E61B39962D008211D8 /* AppDelegate.m */; };
 		7157F7E91B39962D008211D8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7157F7E81B39962D008211D8 /* art.scnassets */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A38A881B3AEFD800B86975 /* SKDoge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDoge.h; sourceTree = "<group>"; };
+		00A38A891B3AEFD800B86975 /* SKDoge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDoge.m; sourceTree = "<group>"; };
 		7157F7DE1B39962D008211D8 /* whackadoge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whackadoge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7157F7E21B39962D008211D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7157F7E31B39962D008211D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				7157F7F01B39962D008211D8 /* Images.xcassets */,
 				7157F7F21B39962D008211D8 /* LaunchScreen.xib */,
 				7157F7E11B39962D008211D8 /* Supporting Files */,
+				00A38A881B3AEFD800B86975 /* SKDoge.h */,
+				00A38A891B3AEFD800B86975 /* SKDoge.m */,
 			);
 			path = whackadoge;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			files = (
 				7157F7E71B39962D008211D8 /* AppDelegate.m in Sources */,
 				7157F7EC1B39962D008211D8 /* GameViewController.m in Sources */,
+				00A38A8A1B3AEFD800B86975 /* SKDoge.m in Sources */,
 				7157F80B1B399A4D008211D8 /* GameScene.m in Sources */,
 				7157F7E41B39962D008211D8 /* main.m in Sources */,
 			);

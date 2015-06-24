@@ -30,8 +30,13 @@ static const uint8_t dogeCategory = 2;
 -(instancetype)initWithSize:(CGSize)size
 {
     self = [super initWithSize:size];
+    
+    //If initialized...
     if (self){
+        
+        
         [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction performSelector:@selector(spawnDoge) onTarget:self], [SKAction waitForDuration:1]]]] withKey:@"spawnDoge"];
+        //spaceship action - causes exceptions upon collision
         [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction performSelector:@selector(spawnSpaceship) onTarget:self], [SKAction waitForDuration:3]]]] withKey:@"spawnSpaceship"];
         _scoreBoard = [[SKLabelNode alloc]init];
         _scoreBoard.position = CGPointMake(self.size.width/2, self.size.height - 40);
@@ -73,11 +78,16 @@ static const uint8_t dogeCategory = 2;
     doge.yScale = 0;
     [self addChild:doge];
     
-    // Actions that relate to the spawning of food
+    //Actions that determine just how, visually, that items animate
+    //Essentially these SKActions are function pointers with parameters that the class has predefined to perform certain actions
     SKAction *appear = [SKAction scaleTo:1.0 duration:0.5];
     SKAction *disappear = [SKAction scaleTo:0.0 duration:0.5];
+    //Not sure where we would use this, but I'm guessing you took it from his color-pillar example
     SKAction *waitOnScreen = [SKAction waitForDuration:.5];
     SKAction *removeFromParent = [SKAction removeFromParent];
+    //TODO: Implement movingOnScreen for a constant and 'smooth' rate of motion
+    //There's a way to do this 'smoother' that should be looked into later, but basically not all frames are changing at the same
+    //rates so it might be pertinent later to perform the calculated amount of motion based on how much time has passed between frames
     SKAction *moveOnScreen = [SKAction moveTo:CGPointMake(RandomRange(0, self.size.width), RandomRange(0, self.size.height - 55)) duration:5];
     [doge runAction:[SKAction sequence:@[appear, waitOnScreen, moveOnScreen, disappear, removeFromParent]]]; // doge image will run through this sequence of actions
 }
@@ -85,6 +95,8 @@ static const uint8_t dogeCategory = 2;
 -(void)spawnSpaceship
 {
     SKSpriteNode *spaceship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    
+    //TODO: Add scaling parameter to alter this based on settings and perhaps other game elements
     spaceship.size = CGSizeMake(50, 44); // Default size is 394 x 347
     
     CGPoint startLocation = CGPointMake(-50, RandomRange(0, self.size.height));

@@ -3,7 +3,7 @@
 //  whackadoge
 //
 //  Created by Yoseob Lee on 6/23/15.
-//  Copyright (c) 2015 Yoseob Lee. All rights reserved.
+//  Copyright (c) 2015 Yoseob Lee & Marcus Grant. All rights reserved.
 //
 
 #import "GameViewController.h"
@@ -11,11 +11,14 @@
 
 @implementation GameViewController
 
+//TODO: We need to compartmentalize to a MVC
+//TODO: Doge or Doge & a parent class needs to be defined to store and process all data pertaining to the doges
 // Ensures we set the correct size for our view
 - (void)viewWillLayoutSubviews
 {
     SKView *skView = (SKView *)self.view;
-    if (!skView.scene){
+    if (!skView.scene)
+    {
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
         skView.ignoresSiblingOrder = YES;
