@@ -61,6 +61,32 @@ static const uint8_t dogeCategory = 2;
     return self;
 }
 
+
+
+#pragma mark - Game Actions
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touchedNode = [touches anyObject]; // Registers the touch
+    CGPoint touchPoint = [touchedNode locationInNode:self]; // (x, y) of where the touch was
+    
+    SKNode *node = [self nodeAtPoint:touchPoint]; // Returns the node at touch
+    
+    if ([node containsPoint:touchPoint]){
+        [node removeFromParent];
+        self.score ++;
+    }
+}
+
+-(void)updateScore
+{
+    NSString *currentScore = [NSString stringWithFormat:@"Doges Collected: %lu", self.score];
+    self.scoreBoard.text = currentScore;
+}
+-(void)didEvaluateActions
+{
+    [self updateScore];
+}
+
 -(void)spawnDoge // Spawns doge in random point on the screen
 {
     SKSpriteNode *doge = [SKSpriteNode spriteNodeWithImageNamed:@"doge"];
@@ -157,30 +183,6 @@ static const uint8_t dogeCategory = 2;
     }
 }
 
-
-#pragma mark - Game Actions
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touchedNode = [touches anyObject]; // Registers the touch
-    CGPoint touchPoint = [touchedNode locationInNode:self]; // (x, y) of where the touch was
-    
-    SKNode *node = [self nodeAtPoint:touchPoint]; // Returns the node at touch
-    
-    if ([node containsPoint:touchPoint]){
-        [node removeFromParent];
-        self.score ++;
-    }
-}
-
--(void)updateScore
-{
-    NSString *currentScore = [NSString stringWithFormat:@"Doges Collected: %lu", self.score];
-    self.scoreBoard.text = currentScore;
-}
--(void)didEvaluateActions
-{
-    [self updateScore];
-}
 
 
 
